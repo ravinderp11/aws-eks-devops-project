@@ -1,0 +1,20 @@
+pipeline {
+agent any
+
+stages {
+
+stage('Build'){
+steps{
+sh 'docker build -t node-app ./app'
+}
+}
+
+stage('Deploy'){
+steps{
+sh './scripts/deploy.sh'
+}
+}
+
+}
+
+}
